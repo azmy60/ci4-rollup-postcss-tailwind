@@ -8,6 +8,8 @@ class TodosModel extends Model
 {
   protected $table = 'todos';
 
+  protected $allowedFields = ['name'];
+
   public function getTodos()
   {
     return $this->findAll();

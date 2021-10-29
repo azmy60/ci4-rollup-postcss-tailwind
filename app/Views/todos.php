@@ -41,14 +41,7 @@
 
       <?php foreach ($todos as $task) : ?>
 
-        <li class="flex items-center justify-between w-full py-2 rounded-lg hover:bg-purple-100">
-          <span><?= $task['name'] ?></span>
-          <button class="px-1.5 py-1.5 text-gray-400 border border-gray-400 rounded-xl">
-            <svg class="<?= $task['completed'] ? '' : 'invisible' ?> w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-          </button>
-        </li>
+        <todo-task name="<?= $task['name'] ?>" completed="<?= $task['completed'] ?>"></todo-task>
 
       <?php endforeach ?>
 

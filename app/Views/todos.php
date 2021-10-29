@@ -29,7 +29,7 @@
         <circle cx="291.385" cy="55.887" r="9.047" fill="#cc1b5b" />
       </svg></div>
     <form action="/add" method="post" class="flex w-full h-12 mt-12">
-    <?= csrf_field() ?>
+      <?= csrf_field() ?>
       <input type="text" name="task" id="main-input" placeholder="Add a new task" class="flex-grow border-gray-400 rounded-xl focus:border-purple-600 focus:ring-1 focus:ring-purple-500">
       <button type="submit" class="flex-grow-0 hidden h-full px-5 text-white bg-purple-600 rounded-r-xl">
         <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">

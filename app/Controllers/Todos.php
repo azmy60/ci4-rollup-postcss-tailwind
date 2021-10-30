@@ -39,4 +39,22 @@ class Todos extends Controller
 
         return $this->failForbidden();
     }
+
+    public function update()
+    {
+        if ($this->request->isAJAX() && $this->request->getMethod() === 'post') {
+            $id = $this->request->getJsonVar('id');
+            $completed = $this->request->getJsonVar('completed');
+            $data = [
+                'completed' => $completed ? 1 : 0
+            ];
+
+            $model = new TodosModel();
+            $model->update($id, $data);
+
+            return $this->respondCreated();
+        }
+
+        return $this->failForbidden();
+    }
 }

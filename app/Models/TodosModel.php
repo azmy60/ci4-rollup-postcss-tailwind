@@ -8,7 +8,7 @@ class TodosModel extends Model
 {
   protected $table = 'todos';
 
-  protected $allowedFields = ['name'];
+  protected $allowedFields = ['name', 'completed'];
 
   public function getTodos()
   {

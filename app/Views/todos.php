@@ -41,7 +41,7 @@
 
       <?php foreach ($todos as $task) : ?>
 
-        <todo-task name="<?= $task['name'] ?>" completed="<?= $task['completed'] ?>"></todo-task>
+        <todo-task task-id="<?= $task['id'] ?>" name="<?= $task['name'] ?>" completed="<?= $task['completed'] ? 'true' : 'false' ?>"></todo-task>
 
       <?php endforeach ?>
 

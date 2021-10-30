@@ -34,13 +34,17 @@ form.addEventListener('submit', (e) => {
     body: JSON.stringify({
       name,
     }),
-  }).then(() => {
-    const todoTask = document.createElement('todo-task');
-    todoTask.setAttribute('name', name);
-    todoTask.setAttribute('completed', 'false');
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const todoTask = document.createElement('todo-task');
 
-    listContainer.appendChild(todoTask);
-  }).catch(() => {
+      todoTask.setAttribute('task-id', data.id);
+      todoTask.setAttribute('name', name);
+      todoTask.setAttribute('completed', 'false');
+
+      listContainer.appendChild(todoTask);
+    }).catch(() => {
     // TODO error message popup
-  });
+    });
 });

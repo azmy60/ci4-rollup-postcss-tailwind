@@ -21,15 +21,23 @@ class TodoTask extends HTMLElement {
     return this.getAttribute('completed') === 'true';
   }
 
+  constructor() {
+    super();
+
+    this.svg = null;
+    this.nameSpan = null;
+  }
+
   connectedCallback() {
     this.appendChild(template.content.cloneNode(true));
 
-    const nameSpan = this.querySelector('span');
-    nameSpan.innerText = this.name;
+    this.nameSpan = this.querySelector('span');
+    this.svg = this.querySelector('svg');
 
-    const svg = this.querySelector('svg');
+    this.nameSpan.innerText = this.name;
+
     if (this.completed) {
-      svg.classList.remove('invisible');
+      this.svg.classList.remove('invisible');
     }
   }
 }

@@ -1,2 +1,2 @@
-import './mainInput';
+import './form';
 import './TodoTask';

@@ -13,11 +13,11 @@ document.head.appendChild(template);
 template.innerHTML = templateHtml;
 
 class TodoTask extends HTMLElement {
-  get name() {
+  getName() {
     return this.getAttribute('name');
   }
 
-  get completed() {
+  getCompleted() {
     return this.getAttribute('completed') === 'true';
   }
 
@@ -34,9 +34,9 @@ class TodoTask extends HTMLElement {
     this.nameSpan = this.querySelector('span');
     this.svg = this.querySelector('svg');
 
-    this.nameSpan.innerText = this.name;
+    this.nameSpan.innerText = this.getName();
 
-    if (this.completed) {
+    if (this.getCompleted()) {
       this.svg.classList.remove('invisible');
     }
   }

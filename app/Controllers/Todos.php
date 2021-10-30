@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\TodosModel;
 use CodeIgniter\Controller;
+use CodeIgniter\API\ResponseTrait;
 
 class Todos extends Controller
 {
@@ -11,6 +12,8 @@ class Todos extends Controller
      * @var HTTP\IncomingRequest
      */
     protected $request;
+
+    use ResponseTrait;
 
     public function index()
     {
@@ -27,7 +30,13 @@ class Todos extends Controller
             $name = $this->request->getJsonVar('name');
 
             $model = new TodosModel();
-            $model->save(['name' => $name]);
+            $id = $model->insert(['name' => $name], true);
+
+            return $this->setResponseFormat('json')->respondCreated([
+                'id' => $id
+            ]);
         }
+
+        return $this->failForbidden();
     }
 }

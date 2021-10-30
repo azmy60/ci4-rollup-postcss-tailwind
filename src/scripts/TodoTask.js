@@ -21,6 +21,36 @@ class TodoTask extends HTMLElement {
     return this.getAttribute('completed') === 'true';
   }
 
+  setCompleted(value) {
+    this.setAttribute('completed', value.toString());
+  }
+
+  getTaskId() {
+    return this.getAttribute('task-id');
+  }
+
+  toggleCompleted() {
+    this.svg.classList.toggle('invisible');
+    this.setCompleted(!this.getCompleted());
+
+    fetch('/update', {
+      method: 'POST',
+      cache: 'no-cache',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+      },
+      body: JSON.stringify({
+        id: this.getTaskId(),
+        completed: this.getCompleted(),
+      }),
+    }).then({
+      // do nothing
+    }).catch({
+      // TODO popup error
+    });
+  }
+
   constructor() {
     super();
 
@@ -39,6 +69,9 @@ class TodoTask extends HTMLElement {
     if (this.getCompleted()) {
       this.svg.classList.remove('invisible');
     }
+
+    const button = this.querySelector('button');
+    button.addEventListener('click', () => this.toggleCompleted());
   }
 }
 

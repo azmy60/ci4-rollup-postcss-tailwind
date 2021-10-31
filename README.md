@@ -14,7 +14,13 @@ database.default.DBDriver = MySQLi
 ```
 5. Finally, run these commands in your terminal
 ```bash
+# install local dependencies
+composer install
 npm install
-npm start build
-php spark serve # open localhost:8080
+
+# build javascripts and css
+npm run build
+
+# serve a local server
+php spark serve
 ```

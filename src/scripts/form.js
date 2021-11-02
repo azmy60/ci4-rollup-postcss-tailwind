@@ -43,7 +43,7 @@ form.addEventListener('submit', (e) => {
       todoTask.setAttribute('name', name);
       todoTask.setAttribute('completed', 'false');
 
-      listContainer.appendChild(todoTask);
+      listContainer.prepend(todoTask);
     }).catch(() => {
     // TODO error message popup
     });

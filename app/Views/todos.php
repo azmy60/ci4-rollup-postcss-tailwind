@@ -10,7 +10,7 @@
 </head>
 
 <body class="text-lg">
-  <main class="grid w-full px-4 mt-6 sm:w-4/6 sm:mx-auto md:w-120">
+  <main class="grid w-full px-4 mt-6 sm:w-4/6 sm:mx-auto md:w-[30rem]">
     <div class="text-5xl leading-tight">CI4 + Rollup + <br>PostCSS + Tailwind CSS <svg xml:space="preserve" class="inline w-14 h-14" viewBox="0 0 512 512">
         <path fill="#2ba5f7" d="M436.131 139.332a9.048 9.048 0 0 1-9.047-9.047v-7.915a9.048 9.048 0 0 1 18.094 0v7.915a9.047 9.047 0 0 1-9.047 9.047zm0 40.483a9.048 9.048 0 0 1-9.047-9.047v-7.915a9.048 9.048 0 0 1 18.094 0v7.915a9.047 9.047 0 0 1-9.047 9.047zm24.199-24.198h-7.915a9.048 9.048 0 0 1 0-18.094h7.915a9.048 9.048 0 0 1 0 18.094zm-40.482 0h-7.915a9.048 9.048 0 0 1 0-18.094h7.915a9.048 9.048 0 0 1 0 18.094z" />
         <path fill="#f7b239" d="M229.923 175.49a9.048 9.048 0 0 1 0-18.094c4.291 0 7.782-3.491 7.782-7.783a9.048 9.048 0 0 1 18.094 0c0 14.269-11.608 25.877-25.876 25.877z" />
@@ -30,8 +30,8 @@
       </svg></div>
     <form action="/add" method="post" class="flex w-full h-12 mt-12">
       <?= csrf_field() ?>
-      <input type="text" name="task" id="main-input" placeholder="Add a new task" class="flex-grow border-gray-400 rounded-xl focus:border-purple-600 focus:ring-1 focus:ring-purple-500">
-      <button type="submit" class="flex-grow-0 hidden h-full px-5 text-white bg-purple-600 rounded-r-xl">
+      <input type="text" name="task" id="main-input" placeholder="Add a new task" class="border-gray-400 grow rounded-xl focus:border-violet-600 focus:ring-1 focus:ring-violet-500">
+      <button type="submit" class="hidden h-full px-5 text-white grow-0 bg-violet-600 rounded-r-xl">
         <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
         </svg>

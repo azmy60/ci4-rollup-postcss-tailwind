@@ -1,5 +1,5 @@
 const templateHtml = /* html */`
-  <li class="flex items-center justify-between w-full py-2 rounded-lg hover:bg-purple-100">
+  <li class="flex items-center justify-between w-full py-2 rounded-lg hover:bg-violet-100">
   <span></span>
   <button class="px-1 py-1 text-gray-500 border border-gray-400 rounded-lg">
     <svg class="invisible w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

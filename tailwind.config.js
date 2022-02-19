@@ -1,21 +1,17 @@
 /* eslint-disable global-require */
 module.exports = {
-  purge: [
+  content: [
     'src/scripts/**/*.js',
     'app/Views/**/*.php',
   ],
-  darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {
-      spacing: {
-        120: '30rem',
-      },
-    },
+    extend: {},
   },
   variants: {
     extend: {},
   },
   plugins: [
+    // eslint-disable-next-line import/no-extraneous-dependencies
     require('@tailwindcss/forms'),
   ],
 };

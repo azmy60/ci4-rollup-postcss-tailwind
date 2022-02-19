@@ -1,9 +1,9 @@
 # ci4-rollup-postcss-tailwind
 
 ## Installation
-1. Create a new database with any name
-2. Copy or rename the env file to `.env` and open.
-3. Set the `database.default` lines to your database configurations.
+1. Create a new database
+2. Copy or rename the env file to `.env` and open
+3. Set the following `database.default` lines depending on your database configurations
 ```php
 database.default.hostname = localhost
 database.default.database = ci4-rpt-todos
@@ -13,20 +13,32 @@ database.default.DBDriver = MySQLi
 ```
 5. Run these commands in your terminal
 ```bash
-# install local dependencies
+# Install local dependencies
 composer install
 npm install
 
-# build javascripts and css
+# Build javascripts and css
 npm run build
 
-# serve a local server
+# Migrate database
+php spark migrate
+
+# Serve a local server
 php spark serve
 ```
 
 ## Commands
 ```bash
-php spark serve
-npm run start # watch js/css to build + live-server
-npm run production # build for production
+# Main commands
+php spark serve     # Serve a local server
+npm run start       # Serve + watch changes in php(views)/js/css & auto build
+npm run build       # Build js & css (not optimized)
+npm run production  # Build js & css (optimized for production)
+
+# Others
+npm run build:css   # Build only css
+npm run build:js    # Build only js
+npm run watch:css   # Watch only css
+npm run watch:js    # Watch only js
+npm run watch:app   # Watch only files in ./app/Views and ./public
 ```

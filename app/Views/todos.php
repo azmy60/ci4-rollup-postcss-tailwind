@@ -28,8 +28,7 @@
         <circle cx="370.998" cy="103.232" r="9.047" fill="#f7b239" />
         <circle cx="291.385" cy="55.887" r="9.047" fill="#cc1b5b" />
       </svg></div>
-    <form action="/add" method="post" class="flex w-full h-12 mt-12">
-      <?= csrf_field() ?>
+    <form class="flex w-full h-12 mt-12">
       <input type="text" name="task" id="main-input" placeholder="Add a new task" class="border-gray-400 grow rounded-xl focus:border-violet-600 focus:ring-1 focus:ring-violet-500">
       <button type="submit" class="hidden h-full px-5 text-white grow-0 bg-violet-600 rounded-r-xl">
         <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
@@ -37,21 +36,7 @@
         </svg>
       </button>
     </form>
-    <ul id="list-container" class="mt-8 space-y-4">
-
-      <?php
-
-      usort($todos, function ($left, $right) {
-        return $left['completed'] - $right['completed'];
-      });
-
-      foreach ($todos as $task) : ?>
-
-        <todo-task task-id="<?= $task['id'] ?>" name="<?= $task['name'] ?>" completed="<?= $task['completed'] ? 'true' : 'false' ?>"></todo-task>
-
-      <?php endforeach ?>
-
-    </ul>
+    <ul id="list-container" class="mt-8 space-y-4"></ul>
   </main>
   <script src="/js/main.js"></script>
 </body>

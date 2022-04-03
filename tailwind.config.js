@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 module.exports = {
   content: [
-    'src/scripts/**/*.js',
+    'src/js/**/*.js',
     'app/Views/**/*.php',
   ],
   theme: {

@@ -5,9 +5,9 @@ import replace from '@rollup/plugin-replace';
 import { terser } from 'rollup-plugin-terser';
 
 export default {
-  input: 'src/scripts/main.js',
+  input: 'src/js/main.js',
   output: {
-    file: 'public/scripts/main.js',
+    file: 'public/js/main.js',
     format: 'iife',
     sourcemap: (process.env.NODE_ENV === 'production' ? false : 'inline'),
   },
@@ -15,7 +15,7 @@ export default {
     resolve(),
     eslint({
       fix: true,
-      exclude: ['node_modules/**', 'src/styles/'],
+      exclude: ['node_modules/**', 'src/css/'],
     }),
     babel({
       exclude: 'node_modules/**',

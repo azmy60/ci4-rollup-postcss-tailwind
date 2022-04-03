@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/css/main.css">
 </head>
 
 <body class="text-lg">
@@ -44,7 +44,7 @@
       usort($todos, function ($left, $right) {
         return $left['completed'] - $right['completed'];
       });
-      
+
       foreach ($todos as $task) : ?>
 
         <todo-task task-id="<?= $task['id'] ?>" name="<?= $task['name'] ?>" completed="<?= $task['completed'] ? 'true' : 'false' ?>"></todo-task>
@@ -53,7 +53,7 @@
 
     </ul>
   </main>
-  <script src="/scripts/main.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 
 </html>

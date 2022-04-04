@@ -7,6 +7,7 @@ class TaskModel {
     const task = new TaskModel();
     task.name = name;
     task.id = TaskStorage.length;
+    task.completed = false;
 
     TaskStorage.insert(task);
 
@@ -21,9 +22,20 @@ class TaskModel {
     TaskStorage.clear();
   }
 
+  complete() {
+    this.completed = true;
+    TaskStorage.update(this);
+  }
+
+  uncomplete() {
+    this.completed = false;
+    TaskStorage.update(this);
+  }
+
   get raw() {
     return {
       name: this.name,
+      completed: this.completed,
     };
   }
 }

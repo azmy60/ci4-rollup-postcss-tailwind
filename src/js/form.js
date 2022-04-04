@@ -2,6 +2,32 @@ const form = document.querySelector('form');
 const mainInput = document.querySelector('#main-input');
 const inputBtn = document.querySelector('#main-input ~ button');
 const listContainer = document.querySelector('#list-container');
+const tasks = JSON.parse(localStorage.getItem('tasks')) ?? [];
+
+function init() {
+  if (tasks.length === 0) return;
+
+  tasks.forEach((task) => {
+    const todoTask = document.createElement('todo-task');
+    todoTask.setAttribute('name', task.name);
+    todoTask.setAttribute('completed', task.completed.toString());
+    listContainer.prepend(todoTask);
+  });
+}
+
+function appendTask(name) {
+  tasks.push({
+    name,
+    completed: false,
+  });
+
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+
+  const todoTask = document.createElement('todo-task');
+  todoTask.setAttribute('name', name);
+  todoTask.setAttribute('completed', 'false');
+  listContainer.prepend(todoTask);
+}
 
 mainInput.addEventListener('input', (e) => {
   if (e.target.value) {
@@ -24,27 +50,7 @@ form.addEventListener('submit', (e) => {
 
   if (!name) { return; }
 
-  fetch('/add', {
-    method: 'POST',
-    cache: 'no-cache',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Requested-With': 'XMLHttpRequest',
-    },
-    body: JSON.stringify({
-      name,
-    }),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      const todoTask = document.createElement('todo-task');
-
-      todoTask.setAttribute('task-id', data.id);
-      todoTask.setAttribute('name', name);
-      todoTask.setAttribute('completed', 'false');
-
-      listContainer.prepend(todoTask);
-    }).catch(() => {
-    // TODO error message popup
-    });
+  appendTask(name);
 });
+
+init();

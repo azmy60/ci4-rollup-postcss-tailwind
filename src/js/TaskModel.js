@@ -1,23 +1,31 @@
-const storage = require('./storage');
+const TaskStorage = require('./TaskStorage');
 
-const KEY = 'tasks';
+class TaskModel {
+  static get KEY() { return TaskStorage.KEY; }
 
-const TaskModel = {
-  get KEY() { return KEY; },
+  static create(name) {
+    const task = new TaskModel();
+    task.name = name;
+    task.id = TaskStorage.length;
 
-  create(name) {
-    const tasks = storage.load(KEY, []);
-    tasks.push({ name });
-    storage.save(KEY, tasks);
-  },
+    TaskStorage.insert(task);
 
-  all() {
-    return storage.load(KEY, []);
-  },
+    return task;
+  }
 
-  clear() {
-    storage.clear(KEY);
-  },
-};
+  static all() {
+    return TaskStorage.data;
+  }
+
+  static truncate() {
+    TaskStorage.clear();
+  }
+
+  get raw() {
+    return {
+      name: this.name,
+    };
+  }
+}
 
 module.exports = TaskModel;

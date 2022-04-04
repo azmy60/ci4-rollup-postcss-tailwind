@@ -4,7 +4,7 @@ const storage = require('../../src/js/storage');
 const TaskModel = require('../../src/js/TaskModel');
 
 afterEach(() => {
-  TaskModel.clear();
+  TaskModel.truncate();
 });
 
 test('can insert a new task', () => {

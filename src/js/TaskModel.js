@@ -18,7 +18,7 @@ class TaskModel {
     return TaskStorage.data;
   }
 
-  static truncate() {
+  static clearAll() {
     TaskStorage.clear();
   }
 
@@ -32,7 +32,7 @@ class TaskModel {
     TaskStorage.update(this);
   }
 
-  get raw() {
+  get data() {
     return {
       name: this.name,
       completed: this.completed,

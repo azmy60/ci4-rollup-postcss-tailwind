@@ -8,7 +8,7 @@ function getTasksFromStorage() {
 }
 
 afterEach(() => {
-  TaskModel.truncate();
+  TaskModel.clearAll();
 });
 
 test('can insert a new task', () => {

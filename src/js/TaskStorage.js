@@ -5,7 +5,7 @@ const TaskStorage = {
   data: storage.load(this.KEY, []),
 
   insert(task) {
-    this.data.push(task.raw);
+    this.data.push(task.data);
     this.save();
   },
 
@@ -14,7 +14,7 @@ const TaskStorage = {
   },
 
   update(task) {
-    this.data[task.id] = task.raw;
+    this.data[task.id] = task.data;
     this.save();
   },
 

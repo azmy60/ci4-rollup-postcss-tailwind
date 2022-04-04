@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 
-const { load, save } = require('../../src/js/storage');
+const { load, save, clear } = require('../../src/js/storage');
 
 const myData = {
   name: 'myName',
@@ -15,4 +15,9 @@ test('should save to localStorage', () => {
 
 test('should load and parse from localStorage', () => {
   expect(load('myData')).toEqual(myData);
+});
+
+test('can clear localStorage by key', () => {
+  clear('myData');
+  expect(load('myData')).not.toBeDefined();
 });

@@ -15,6 +15,7 @@ const TaskStorage = {
 
   update(task) {
     this.data[task.id] = task.raw;
+    this.save();
   },
 
   clear() {

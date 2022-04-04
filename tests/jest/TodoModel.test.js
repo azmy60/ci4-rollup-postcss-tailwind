@@ -15,3 +15,13 @@ test('can insert a new task', () => {
 
   expect(name).toBe('Lorem Khaled Ipsum is a major key to success.');
 });
+
+test('can retrieve all tasks', () => {
+  TodoModel.create('Lorem Khaled Ipsum is a major key to success.');
+  TodoModel.create('Celebrate success right, the only way, apple.');
+
+  expect(TodoModel.all()).toEqual([
+    { name: 'Lorem Khaled Ipsum is a major key to success.' },
+    { name: 'Celebrate success right, the only way, apple.' },
+  ]);
+});

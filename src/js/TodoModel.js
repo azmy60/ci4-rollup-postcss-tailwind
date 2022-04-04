@@ -9,6 +9,10 @@ const TodoModel = {
     save(this.KEY, this.data);
   },
 
+  all() {
+    return this.data;
+  },
+
   clear() {
     clear(this.KEY);
     this.data = [];

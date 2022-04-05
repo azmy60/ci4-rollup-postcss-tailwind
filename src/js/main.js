@@ -8,7 +8,7 @@ const list = document.getElementById('list');
 
 form.addEventListener('submit', submitHandler);
 input.addEventListener('input', inputHandler);
-list.append(...TaskElement.all());
+list.append(...TaskElement.all().reverse());
 
 function submitHandler(ev) {
   ev.preventDefault();

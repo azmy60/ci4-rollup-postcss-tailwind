@@ -28,15 +28,15 @@
         <circle cx="370.998" cy="103.232" r="9.047" fill="#f7b239" />
         <circle cx="291.385" cy="55.887" r="9.047" fill="#cc1b5b" />
       </svg></div>
-    <form class="flex w-full h-12 mt-12">
-      <input type="text" name="task" id="main-input" placeholder="Add a new task" class="border-gray-400 grow rounded-xl focus:border-violet-600 focus:ring-1 focus:ring-violet-500">
-      <button type="submit" class="hidden h-full px-5 text-white grow-0 bg-violet-600 rounded-r-xl">
+    <form id="form" class="flex w-full h-12 mt-12">
+      <input id="input" type="text" name="task" id="main-input" placeholder="Add a new task" class="border-gray-400 grow rounded-xl focus:border-violet-600 focus:ring-1 focus:ring-violet-500">
+      <button id="submit" type="submit" class="hidden h-full px-5 text-white grow-0 bg-violet-600 rounded-r-xl">
         <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
         </svg>
       </button>
     </form>
-    <ul id="list-container" class="mt-8 space-y-4"></ul>
+    <ul id="list" class="mt-8 space-y-4"></ul>
   </main>
   <script src="/js/main.js"></script>
 </body>

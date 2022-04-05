@@ -129,3 +129,4 @@ node_modules
 package-lock.json
 public/js
 public/css
+coverage

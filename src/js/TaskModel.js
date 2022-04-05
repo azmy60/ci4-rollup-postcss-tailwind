@@ -4,10 +4,11 @@ export default class TaskModel {
   static get KEY() { return TaskStorage.KEY; }
 
   static create(name) {
-    const task = new TaskModel();
-    task.name = name;
-    task.id = TaskStorage.length;
-    task.completed = false;
+    const task = new TaskModel({
+      name,
+      id: TaskStorage.length,
+      completed: false,
+    });
 
     TaskStorage.insert(task);
 
@@ -15,17 +16,21 @@ export default class TaskModel {
   }
 
   static all() {
-    return TaskStorage.tasks.map((task, index) => {
-      const model = new TaskModel();
-      model.id = index;
-      model.name = task.name;
-      model.completed = task.completed;
-      return model;
-    });
+    return TaskStorage.tasks.map((task, id) => new TaskModel({
+      id,
+      name: task.name,
+      completed: task.completed,
+    }));
   }
 
   static clearAll() {
     TaskStorage.clear();
+  }
+
+  constructor({ id, name, completed }) {
+    this.id = id;
+    this.name = name;
+    this.completed = completed;
   }
 
   complete() {

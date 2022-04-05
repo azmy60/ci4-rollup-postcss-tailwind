@@ -1,10 +1,10 @@
 /* eslint-disable no-undef */
 
-const storage = require('../../src/js/storage');
-const TaskModel = require('../../src/js/TaskModel');
+import { load } from '../../src/js/storage';
+import TaskModel from '../../src/js/TaskModel';
 
 function getTasksFromStorage() {
-  return storage.load(TaskModel.KEY);
+  return load(TaskModel.KEY);
 }
 
 afterEach(() => {

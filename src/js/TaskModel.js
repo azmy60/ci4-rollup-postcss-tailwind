@@ -1,6 +1,6 @@
-const TaskStorage = require('./TaskStorage');
+import TaskStorage from './TaskStorage';
 
-class TaskModel {
+export default class TaskModel {
   static get KEY() { return TaskStorage.KEY; }
 
   static create(name) {
@@ -39,5 +39,3 @@ class TaskModel {
     };
   }
 }
-
-module.exports = TaskModel;

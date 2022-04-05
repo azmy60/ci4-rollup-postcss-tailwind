@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 
-const { load, save, clear } = require('../../src/js/storage');
+import { load, save, clear } from '../../src/js/storage';
 
 const myData = {
   name: 'myName',

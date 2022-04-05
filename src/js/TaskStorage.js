@@ -1,4 +1,5 @@
-const storage = require('./storage');
+import * as storage from './storage';
+
 
 const TaskStorage = {
   KEY: 'tasks',
@@ -28,4 +29,4 @@ const TaskStorage = {
   },
 };
 
-module.exports = TaskStorage;
+export default TaskStorage;

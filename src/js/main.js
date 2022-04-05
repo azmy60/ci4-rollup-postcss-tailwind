@@ -5,26 +5,32 @@ const form = document.getElementById('form');
 const input = document.getElementById('input');
 const submitBtn = document.getElementById('submit');
 const list = document.getElementById('list');
+const getTrimmedInput = () => input.value.trim();
 
 form.addEventListener('submit', submitHandler);
 input.addEventListener('input', inputHandler);
+
 list.append(...TaskElement.all().reverse());
 
 function submitHandler(ev) {
   ev.preventDefault();
-
-  const name = input.value.trim();
-  if (!name) return;
-
-  list.prepend(TaskElement.create(name));
-
-  input.value = '';
-  styleEmptiedInput();
+  appendTask();
+  resetInput();
 }
 
-function inputHandler(ev) {
-  if (ev.target.value.length > 0) styleFilledInput();
+function inputHandler() {
+  if (getTrimmedInput().length > 0) styleFilledInput();
   else styleEmptiedInput();
+}
+
+function appendTask() {
+  if (!getTrimmedInput()) return;
+  list.prepend(TaskElement.create(getTrimmedInput()));
+}
+
+function resetInput() {
+  input.value = '';
+  styleEmptiedInput();
 }
 
 function styleFilledInput() {

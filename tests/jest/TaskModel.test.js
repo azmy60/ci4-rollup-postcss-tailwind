@@ -11,7 +11,7 @@ afterEach(() => {
   TaskModel.clearAll();
 });
 
-test('can insert a new task', () => {
+test('insert tasks to storage', () => {
   TaskModel.create('Lorem Khaled Ipsum is a major key to success.');
 
   const tasks = getTasksFromStorage();
@@ -25,7 +25,11 @@ test('can retrieve all tasks', () => {
   TaskModel.create('Lorem Khaled Ipsum is a major key to success.');
   TaskModel.create('Celebrate success right, the only way, apple.');
 
-  const tasks = getTasksFromStorage();
+  const tasks = TaskModel.all().map((task) => ({
+    name: task.name,
+    completed: task.completed,
+  }));
+
   expect(tasks).toEqual([
     {
       name: 'Lorem Khaled Ipsum is a major key to success.',

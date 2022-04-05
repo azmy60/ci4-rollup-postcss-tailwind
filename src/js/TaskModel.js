@@ -38,11 +38,6 @@ export default class TaskModel {
     TaskStorage.update(this);
   }
 
-  toggleCompleted() {
-    this.completed = !this.completed;
-    TaskStorage.update(this);
-  }
-
   get data() {
     return {
       name: this.name,

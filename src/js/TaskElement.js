@@ -16,16 +16,16 @@ document.body.appendChild(template);
 export default class TaskElement extends HTMLElement {
   static all() {
     return TaskModel.all().map((model) => {
-      const task = new TaskElement();
-      task.model = model;
-      return task;
+      const el = new TaskElement();
+      el.model = model;
+      return el;
     });
   }
 
   static create(name) {
-    const taskEl = new TaskElement();
-    taskEl.model = TaskModel.create(name);
-    return taskEl;
+    const el = new TaskElement();
+    el.model = TaskModel.create(name);
+    return el;
   }
 
   connectedCallback() {

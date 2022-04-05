@@ -15,7 +15,13 @@ export default class TaskModel {
   }
 
   static all() {
-    return TaskStorage.tasks;
+    return TaskStorage.tasks.map((task, index) => {
+      const model = new TaskModel();
+      model.id = index;
+      model.name = task.name;
+      model.completed = task.completed;
+      return model;
+    });
   }
 
   static clearAll() {
@@ -29,6 +35,11 @@ export default class TaskModel {
 
   uncomplete() {
     this.completed = false;
+    TaskStorage.update(this);
+  }
+
+  toggleCompleted() {
+    this.completed = !this.completed;
     TaskStorage.update(this);
   }
 

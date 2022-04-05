@@ -1,9 +1,10 @@
 import * as storage from './storage';
 
+const KEY = 'tasks';
 
 const TaskStorage = {
-  KEY: 'tasks',
-  data: storage.load(this.KEY, []),
+  KEY,
+  data: storage.load(KEY, []),
 
   insert(task) {
     this.data.push(task.data);
@@ -11,7 +12,7 @@ const TaskStorage = {
   },
 
   save() {
-    storage.save(this.KEY, this.data);
+    storage.save(KEY, this.data);
   },
 
   update(task) {
@@ -20,7 +21,7 @@ const TaskStorage = {
   },
 
   clear() {
-    storage.clear(this.KEY);
+    storage.clear(KEY);
     this.data = [];
   },
 

@@ -1,5 +1,5 @@
 const config = {
-  rootDir: './tests/jest/',
+  roots: ['./tests/jest/', './src/js/'],
   testEnvironment: 'jsdom',
 };
 

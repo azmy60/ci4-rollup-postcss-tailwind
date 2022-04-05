@@ -15,7 +15,7 @@ export default class TaskModel {
   }
 
   static all() {
-    return TaskStorage.data;
+    return TaskStorage.tasks;
   }
 
   static clearAll() {

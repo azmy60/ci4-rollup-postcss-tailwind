@@ -11,13 +11,13 @@ const TaskStorage = {
     this.save();
   },
 
-  save() {
-    storage.save(KEY, this.tasks);
-  },
-
   update(task) {
     this.tasks[task.id] = task.data;
     this.save();
+  },
+
+  save() {
+    storage.save(KEY, this.tasks);
   },
 
   clear() {

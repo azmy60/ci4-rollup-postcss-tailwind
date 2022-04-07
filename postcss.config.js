@@ -3,7 +3,6 @@
 
 module.exports = {
   plugins: [
-    require('stylelint')(),
     require('postcss-import')(),
     require('tailwindcss/nesting')(),
     require('tailwindcss')(),
